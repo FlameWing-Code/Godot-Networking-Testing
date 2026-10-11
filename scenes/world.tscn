@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://c308sysq640ya"]
+
+[ext_resource type="PackedScene" uid="uid://bdd3ccs46qh0s" path="res://scenes/poopy_buttons.tscn" id="1_f3sb7"]
+[ext_resource type="Script" uid="uid://cman2rp381dqn" path="res://scripts/world.gd" id="1_fj7yv"]
+[ext_resource type="PackedScene" uid="uid://begn2metidwso" path="res://scenes/player.tscn" id="2_tlwt5"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kmken"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_k47um"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xta7q"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kmrn7"]
+normal = Vector2(-1, 0)
+
+[node name="World" type="Node2D" unique_id=2130934446]
+script = ExtResource("1_fj7yv")
+player = ExtResource("2_tlwt5")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1162348042]
+
+[node name="PoopyButtons" parent="CanvasLayer" unique_id=709590678 instance=ExtResource("1_f3sb7")]
+
+[node name="Players" type="Node" parent="." unique_id=576012417]
+
+[node name="PlayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1953432314]
+_spawnable_scenes = PackedStringArray("uid://begn2metidwso")
+spawn_path = NodePath("../Players")
+
+[node name="Balls" type="Node" parent="." unique_id=588256540]
+
+[node name="BallSpawner" type="MultiplayerSpawner" parent="." unique_id=80456956]
+_spawnable_scenes = PackedStringArray("uid://d07ebmn5vqcq4")
+spawn_path = NodePath("../Balls")
+
+[node name="Walls" type="Node" parent="." unique_id=2125118504]
+
+[node name="Bottom" type="StaticBody2D" parent="Walls" unique_id=1690233310]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Bottom" unique_id=139522724]
+position = Vector2(576, 648)
+shape = SubResource("WorldBoundaryShape2D_kmken")
+
+[node name="Top" type="StaticBody2D" parent="Walls" unique_id=1391865289]
+position = Vector2(576, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Top" unique_id=1862956428]
+shape = SubResource("WorldBoundaryShape2D_k47um")
+
+[node name="Left" type="StaticBody2D" parent="Walls" unique_id=1946375149]
+position = Vector2(0, 324)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Left" unique_id=80856506]
+shape = SubResource("WorldBoundaryShape2D_xta7q")
+
+[node name="Right" type="StaticBody2D" parent="Walls" unique_id=504559714]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Right" unique_id=550404835]
+position = Vector2(1153, 324)
+shape = SubResource("WorldBoundaryShape2D_kmrn7")
+
+[connection signal="host_pressed" from="CanvasLayer/PoopyButtons" to="." method="_on_poopy_buttons_host_pressed"]
+[connection signal="join_pressed" from="CanvasLayer/PoopyButtons" to="." method="_on_poopy_buttons_join_pressed"]

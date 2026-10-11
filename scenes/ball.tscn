@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://d07ebmn5vqcq4"]
+
+[ext_resource type="Texture2D" uid="uid://bopxn5a3jxd84" path="res://icon.svg" id="1_x8fbi"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_k47um"]
+bounce = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kmken"]
+size = Vector2(44, 44)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_x8fbi"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath(".:linear_velocity")
+properties/2/spawn = true
+properties/2/replication_mode = 1
+properties/3/path = NodePath(".:angular_velocity")
+properties/3/spawn = true
+properties/3/replication_mode = 1
+
+[node name="Ball" type="RigidBody2D" unique_id=624090300 groups=["balls"]]
+physics_material_override = SubResource("PhysicsMaterial_k47um")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1645083594]
+shape = SubResource("RectangleShape2D_kmken")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=463928178]
+scale = Vector2(0.34375003, 0.34375006)
+texture = ExtResource("1_x8fbi")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=2126971244]
+replication_config = SubResource("SceneReplicationConfig_x8fbi")
