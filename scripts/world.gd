@@ -3,6 +3,7 @@ extends Node2D
 @export var player: PackedScene
 const BALL = preload("res://scenes/ball.tscn")
 var can_create_ball = false
+@onready var chat_box = $ChatBox
 	
 func create_player(id: int) -> void:
 	var instance = player.instantiate()
@@ -15,8 +16,14 @@ func create_player(id: int) -> void:
 func _on_peer_connected(id: int) -> void:
 	create_player(id)
 	
-func _on_poopy_buttons_host_pressed(username: String) -> void:
+#im lazy and this is not connected to either button
+#because i is lazy and its just called in the functions below
+func on_either_button_pressed() -> void:
 	can_create_ball = true
+	chat_box.visible = true
+	
+func _on_poopy_buttons_host_pressed(username: String) -> void:
+	on_either_button_pressed()
 	NetworkManager.local_username = username
 	NetworkManager.create_server()
 	multiplayer.peer_connected.connect(_on_peer_connected)
@@ -24,7 +31,7 @@ func _on_poopy_buttons_host_pressed(username: String) -> void:
 	create_player(multiplayer.get_unique_id())
 
 func _on_poopy_buttons_join_pressed(username: String) -> void:
-	can_create_ball = true
+	on_either_button_pressed()
 	NetworkManager.local_username = username
 	NetworkManager.create_client()
 	

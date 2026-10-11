@@ -21,6 +21,7 @@ script = ExtResource("1_fj7yv")
 player = ExtResource("2_tlwt5")
 
 [node name="ChatBox" parent="." unique_id=113085777 instance=ExtResource("3_k0juu")]
+visible = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1162348042]
 
