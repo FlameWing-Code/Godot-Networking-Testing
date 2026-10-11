@@ -23,8 +23,8 @@ func _ready() -> void:
 
 	# if authority was set to ourselves, change the username
 	if is_multiplayer_authority():
-		print(NetworkManager.local_username)
 		username = NetworkManager.local_username
+		
 
 func _physics_process(delta: float) -> void:
 	if is_multiplayer_authority():

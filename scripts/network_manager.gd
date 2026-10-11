@@ -12,6 +12,8 @@ var local_username: String = "":
 			return local_username
 		else:
 			return str(multiplayer.get_unique_id())
+			
+var local_username_color = Color.from_hsv(randf(), randf(), randf())
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
