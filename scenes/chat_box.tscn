@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://chfkxuro5ygp5"]
+
+[ext_resource type="Script" uid="uid://bu7js07yo1c8" path="res://scripts/chat_box.gd" id="1_4o336"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kmken"]
+bg_color = Color(0.6, 0.6, 0.6, 0.21568628)
+border_color = Color(0, 0, 0, 1)
+
+[node name="ChatBox" type="PanelContainer" unique_id=113085777]
+offset_right = 333.0
+offset_bottom = 199.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_kmken")
+script = ExtResource("1_4o336")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2037777639]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer" unique_id=1678629544]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="MessageContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer" unique_id=1829383]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer" unique_id=1389736292]
+layout_mode = 2
+placeholder_text = "Type Message"
+keep_editing_on_text_submit = true
+caret_blink = true
+
+[connection signal="text_submitted" from="VBoxContainer/LineEdit" to="." method="_on_line_edit_text_submitted"]

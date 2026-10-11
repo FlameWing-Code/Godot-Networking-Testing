@@ -15,15 +15,17 @@ func create_player(id: int) -> void:
 func _on_peer_connected(id: int) -> void:
 	create_player(id)
 	
-func _on_poopy_buttons_host_pressed() -> void:
+func _on_poopy_buttons_host_pressed(username: String) -> void:
 	can_create_ball = true
+	NetworkManager.local_username = username
 	NetworkManager.create_server()
 	multiplayer.peer_connected.connect(_on_peer_connected)
 	
 	create_player(multiplayer.get_unique_id())
 
-func _on_poopy_buttons_join_pressed() -> void:
+func _on_poopy_buttons_join_pressed(username: String) -> void:
 	can_create_ball = true
+	NetworkManager.local_username = username
 	NetworkManager.create_client()
 	
 func _input(event: InputEvent) -> void:

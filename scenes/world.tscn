@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bdd3ccs46qh0s" path="res://scenes/poopy_buttons.tscn" id="1_f3sb7"]
 [ext_resource type="Script" uid="uid://cman2rp381dqn" path="res://scripts/world.gd" id="1_fj7yv"]
 [ext_resource type="PackedScene" uid="uid://begn2metidwso" path="res://scenes/player.tscn" id="2_tlwt5"]
+[ext_resource type="PackedScene" uid="uid://chfkxuro5ygp5" path="res://scenes/chat_box.tscn" id="3_k0juu"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kmken"]
 
@@ -18,6 +19,8 @@ normal = Vector2(-1, 0)
 [node name="World" type="Node2D" unique_id=2130934446]
 script = ExtResource("1_fj7yv")
 player = ExtResource("2_tlwt5")
+
+[node name="ChatBox" parent="." unique_id=113085777 instance=ExtResource("3_k0juu")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1162348042]
 

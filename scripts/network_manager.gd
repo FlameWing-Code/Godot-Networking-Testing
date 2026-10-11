@@ -4,11 +4,18 @@ extends Node
 const IP_ADDRESS = "localhost"
 const PORT = 1121
 
+var local_username: String = "":
+	set(value):
+		local_username = value.strip_edges()
+	get:
+		if not local_username.is_empty():
+			return local_username
+		else:
+			return str(multiplayer.get_unique_id())
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	multiplayer.peer_connected.connect(on_connection)
-
 
 func create_client():
 	var peer = ENetMultiplayerPeer.new()

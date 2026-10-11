@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://c6umhm7ksr8pi"]
+
+[node name="Message" type="RichTextLabel" unique_id=923653003]
+custom_minimum_size = Vector2(1, 0)
+offset_right = 226.0
+offset_bottom = 40.0
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
