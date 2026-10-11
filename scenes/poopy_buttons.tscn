@@ -26,7 +26,7 @@ offset_bottom = 71.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="LineEdit" type="LineEdit" parent="VBoxContainer" unique_id=172663453]
+[node name="Username" type="LineEdit" parent="VBoxContainer" unique_id=172663453]
 layout_mode = 2
 placeholder_text = "Username"
 alignment = 1
@@ -40,6 +40,11 @@ text = "Host"
 layout_mode = 2
 theme_override_font_sizes/font_size = 44
 text = "Join"
+
+[node name="IP" type="LineEdit" parent="VBoxContainer" unique_id=1011711061]
+layout_mode = 2
+placeholder_text = "Server IP (localhost)"
+alignment = 1
 
 [connection signal="pressed" from="VBoxContainer/Host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="VBoxContainer/Join" to="." method="_on_join_pressed"]

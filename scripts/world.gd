@@ -30,8 +30,11 @@ func _on_poopy_buttons_host_pressed(username: String) -> void:
 	
 	create_player(multiplayer.get_unique_id())
 
-func _on_poopy_buttons_join_pressed(username: String) -> void:
+func _on_poopy_buttons_join_pressed(username: String, address: String) -> void:
 	on_either_button_pressed()
+	if not address.is_empty():
+		NetworkManager.ip_address = address
+		
 	NetworkManager.local_username = username
 	NetworkManager.create_client()
 	

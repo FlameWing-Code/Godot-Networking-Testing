@@ -1,9 +1,10 @@
 extends Control
 
-signal host_pressed(username: String)
+signal host_pressed(username: String, adress: String)
 signal join_pressed(username: String)
 
-@onready var line_edit: LineEdit = $VBoxContainer/LineEdit
+@onready var line_edit: LineEdit = $VBoxContainer/Username
+@onready var ipBox = $VBoxContainer/IP
 
 func _on_host_pressed() -> void:
 	var username = line_edit.text
@@ -12,5 +13,6 @@ func _on_host_pressed() -> void:
 
 func _on_join_pressed() -> void:
 	var username = line_edit.text
-	join_pressed.emit(username)
+	var address = ipBox.text
+	join_pressed.emit(username, address)
 	visible = false

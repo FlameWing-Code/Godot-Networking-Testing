@@ -1,7 +1,5 @@
 extends Node
 
-
-const IP_ADDRESS = "localhost"
 const PORT = 1121
 
 var local_username: String = "":
@@ -14,6 +12,7 @@ var local_username: String = "":
 			return str(multiplayer.get_unique_id())
 			
 var local_username_color = Color.from_hsv(randf(), randf(), randf())
+var ip_address = "localhost"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -21,7 +20,7 @@ func _ready() -> void:
 
 func create_client():
 	var peer = ENetMultiplayerPeer.new()
-	peer.create_client(IP_ADDRESS, PORT)
+	peer.create_client(ip_address, PORT)
 	multiplayer.multiplayer_peer = peer
 	
 func create_server():
