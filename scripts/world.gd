@@ -32,6 +32,7 @@ func _on_poopy_buttons_host_pressed(username: String) -> void:
 
 func _on_poopy_buttons_join_pressed(username: String, address: String) -> void:
 	on_either_button_pressed()
+	
 	if not address.is_empty():
 		NetworkManager.ip_address = address
 		

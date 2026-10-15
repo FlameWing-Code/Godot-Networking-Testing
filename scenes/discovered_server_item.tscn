@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://bt8gqvryie853"]
+
+[ext_resource type="Script" uid="uid://dwi0akefmdq4o" path="res://scripts/discovered_server_item.gd" id="1_jpk6s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_li2c1"]
+
+[node name="DiscoveredServerItem" type="PanelContainer" unique_id=1859078626]
+offset_right = 97.0
+offset_bottom = 77.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxEmpty_li2c1")
+script = ExtResource("1_jpk6s")
+
+[node name="Button" type="Button" parent="." unique_id=1212136818]
+propagate_maximum_size = true
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=444253723]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Host" type="Label" parent="VBoxContainer" unique_id=1623325777]
+layout_mode = 2
+text = "Host: "
+
+[node name="Port" type="Label" parent="VBoxContainer" unique_id=1815103861]
+layout_mode = 2
+text = "Port: "
+
+[node name="IP" type="Label" parent="VBoxContainer" unique_id=1225361523]
+layout_mode = 2
+text = "IP:"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
