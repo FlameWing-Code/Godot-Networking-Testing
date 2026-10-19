@@ -8,9 +8,8 @@ DATA DICTIONARY = {
 }
 """
 
-
 const DISCOVERY_PORT = 1122
-const BROADCAST_IP = "127.0.0.1" # or 255.255.255.255 or 127.0.0.1
+const BROADCAST_IP = "255.255.255.255" # or 255.255.255.255 or 127.0.0.1
 
 signal discovered_new_server(data)
 
@@ -38,7 +37,7 @@ func _ready() -> void:
 	discovery_peer = PacketPeerUDP.new()
 	discovery_peer.set_broadcast_enabled(true)
 	discovery_peer.set_dest_address(BROADCAST_IP, DISCOVERY_PORT)
-	var error = discovery_peer.bind(DISCOVERY_PORT)
+	var error = discovery_peer.bind(DISCOVERY_PORT, "*")
 	print("Discovery bind result: ", error)
 	
 	broadcast_timer = Timer.new()
