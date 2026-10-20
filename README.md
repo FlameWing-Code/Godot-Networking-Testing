@@ -10,3 +10,5 @@ This project demonstrates:
 
 This was one of my first Godot projects, and used it as a way to learn the engine. Chances are, there are significantly better ways to do some of the general stuff,
 but I believe the networking is pretty solid. Feel free to use this project however you please, and learn from it!
+
+The game runs on port 1121, and broadcasts on 1122. You may need to allow these ports in your firewall.
